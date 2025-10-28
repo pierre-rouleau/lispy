@@ -597,7 +597,7 @@ their output will be updated after the eval.
 ## [Demo 2: The substitution model for procedure application](https://enzuru.github.io/lispy/demo-2.html)
 ## [Demo 3: Down the rabbit hole](https://enzuru.github.io/lispy/demo-3.html)
 ## [Demo 4: Project Euler p100 and Clojure](https://enzuru.github.io/lispy/demo-4.html)
-## [Demo 5: ->>ification](https://enzur.github.io/lispy/demo-5.html)
+## [Demo 5: ->>ification](https://enzuru.github.io/lispy/demo-5.html)
 ## [Demo 6: cond->if->cond](https://enzuru.github.io/lispy/demo-6.html)
 
 # Screencasts
