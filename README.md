@@ -593,12 +593,12 @@ their output will be updated after the eval.
 
 # Demos
 
-## [Demo 1: Practice generating code](http://enzuru.github.io/lispy/demo-1.html)
-## [Demo 2: The substitution model for procedure application](http://enzuru.github.io/lispy/demo-2.html)
-## [Demo 3: Down the rabbit hole](http://abo-abo.github.io/lispy/demo-3)
-## [Demo 4: Project Euler p100 and Clojure](http://abo-abo.github.io/lispy/demo-4)
-## [Demo 5: ->>ification](http://abo-abo.github.io/lispy/demo-5)
-## [Demo 6: cond->if->cond](http://abo-abo.github.io/lispy/demo-6)
+## [Demo 1: Practice generating code](https://enzuru.github.io/lispy/demo-1.html)
+## [Demo 2: The substitution model for procedure application](https://enzuru.github.io/lispy/demo-2.html)
+## [Demo 3: Down the rabbit hole](https://enzuru.github.io/lispy/demo-3.html)
+## [Demo 4: Project Euler p100 and Clojure](https://enzuru.github.io/lispy/demo-4.html)
+## [Demo 5: ->>ification](https://enzur.github.io/lispy/demo-5.html)
+## [Demo 6: cond->if->cond](https://enzuru.github.io/lispy/demo-6.html)
 
 # Screencasts
 

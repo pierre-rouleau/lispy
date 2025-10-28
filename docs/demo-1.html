@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-24 Thu 08:41 -->
+<!-- 2025-10-27 Mon 21:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>lispy.el demo 1: practice generating code</title>
@@ -35,56 +35,56 @@
 </tr>
 </tbody>
 </table>
-<div id="outline-container-org24267fb" class="outline-2">
-<h2 id="org24267fb">Intro</h2>
-<div class="outline-text-2" id="text-org24267fb">
+<div id="outline-container-orgcaba7e5" class="outline-2">
+<h2 id="orgcaba7e5">Intro</h2>
+<div class="outline-text-2" id="text-orgcaba7e5">
 <p>
 Comes from <a href="http://emacs.stackexchange.com/questions/3881/changing-the-role-of-the-underline-and-the-minus-sign-just-in-latex-mode">this emacs.stackexchange question</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-orga5126a8" class="outline-2">
-<h2 id="orga5126a8">Task summary</h2>
-<div class="outline-text-2" id="text-orga5126a8">
+<div id="outline-container-org7fa1f1d" class="outline-2">
+<h2 id="org7fa1f1d">Task summary</h2>
+<div class="outline-text-2" id="text-org7fa1f1d">
 <p>
 For <code>LaTeX-mode</code>, swap <kbd>-</kbd> to <kbd>_</kbd>, and swap <kbd>6</kbd> to <kbd>^</kbd>.
 </p>
 </div>
 </div>
-<div id="outline-container-org8864874" class="outline-2">
-<h2 id="org8864874">Screencast</h2>
-<div class="outline-text-2" id="text-org8864874">
+<div id="outline-container-orgcc9eadd" class="outline-2">
+<h2 id="orgcc9eadd">Screencast</h2>
+<div class="outline-text-2" id="text-orgcc9eadd">
 <p>
 The screencast for this demo is here: <a href="https://www.youtube.com/watch?v=2w1h48CYOMo">https://www.youtube.com/watch?v=2w1h48CYOMo</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org71ff400" class="outline-2">
-<h2 id="org71ff400">Resulting code</h2>
-<div class="outline-text-2" id="text-org71ff400">
+<div id="outline-container-orgf453c0b" class="outline-2">
+<h2 id="orgf453c0b">Resulting code</h2>
+<div class="outline-text-2" id="text-orgf453c0b">
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(define-key LaTeX-mode-map "_" (lambda () (interactive) (insert "-")))
-(define-key LaTeX-mode-map "-" (lambda () (interactive) (insert "_")))
-(define-key LaTeX-mode-map "^" (lambda () (interactive) (insert "6")))
-(define-key LaTeX-mode-map "6" (lambda () (interactive) (insert "^")))
-</pre>
+<pre class="src src-emacs-lisp"><code><span style="color: #e7dbc0;">(</span><span style="color: #a1b9e1;">define-key LaTeX-mode-map </span><span style="color: #c793d1bde2ad;">"_"</span> <span style="color: #a1b9e1;">(</span><span style="color: #ccb9e3;">lambda</span><span style="color: #ccb9e3;"> ()</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">interactive</span><span style="color: #ccb9e3;">)</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">insert </span><span style="color: #859e859e859e;">"-"</span><span style="color: #ccb9e3;">)</span><span style="color: #a1b9e1;">)</span><span style="color: #e7dbc0;">)</span>
+<span style="color: #e7dbc0;">(</span><span style="color: #a1b9e1;">define-key LaTeX-mode-map </span><span style="color: #c793d1bde2ad;">"-"</span> <span style="color: #a1b9e1;">(</span><span style="color: #ccb9e3;">lambda</span><span style="color: #ccb9e3;"> ()</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">interactive</span><span style="color: #ccb9e3;">)</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">insert </span><span style="color: #859e859e859e;">"_"</span><span style="color: #ccb9e3;">)</span><span style="color: #a1b9e1;">)</span><span style="color: #e7dbc0;">)</span>
+<span style="color: #e7dbc0;">(</span><span style="color: #a1b9e1;">define-key LaTeX-mode-map </span><span style="color: #c793d1bde2ad;">"^"</span> <span style="color: #a1b9e1;">(</span><span style="color: #ccb9e3;">lambda</span><span style="color: #ccb9e3;"> ()</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">interactive</span><span style="color: #ccb9e3;">)</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">insert </span><span style="color: #859e859e859e;">"6"</span><span style="color: #ccb9e3;">)</span><span style="color: #a1b9e1;">)</span><span style="color: #e7dbc0;">)</span>
+<span style="color: #e7dbc0;">(</span><span style="color: #a1b9e1;">define-key LaTeX-mode-map </span><span style="color: #c793d1bde2ad;">"6"</span> <span style="color: #a1b9e1;">(</span><span style="color: #ccb9e3;">lambda</span><span style="color: #ccb9e3;"> ()</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">interactive</span><span style="color: #ccb9e3;">)</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">insert </span><span style="color: #859e859e859e;">"^"</span><span style="color: #ccb9e3;">)</span><span style="color: #a1b9e1;">)</span><span style="color: #e7dbc0;">)</span>
+</code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org60a7f80" class="outline-2">
-<h2 id="org60a7f80">How to generate this code:</h2>
-<div class="outline-text-2" id="text-org60a7f80">
+<div id="outline-container-org57e919b" class="outline-2">
+<h2 id="org57e919b">How to generate this code:</h2>
+<div class="outline-text-2" id="text-org57e919b">
 </div>
-<div id="outline-container-org59bdc49" class="outline-3">
-<h3 id="org59bdc49">step one</h3>
-<div class="outline-text-3" id="text-org59bdc49">
+<div id="outline-container-orga4d10ab" class="outline-3">
+<h3 id="orga4d10ab">step one</h3>
+<div class="outline-text-3" id="text-orga4d10ab">
 <p>
 Write:
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">"-" "_"
-"6" "^"
-</pre>
+<pre class="src src-emacs-lisp"><code><span style="color: #a6e3a1;">"-"</span> <span style="color: #a6e3a1;">"_"</span>
+<span style="color: #a6e3a1;">"6"</span> <span style="color: #a6e3a1;">"^"</span>
+</code></pre>
 </div>
 <ul class="org-ul">
 <li>position the point at the start</li>
@@ -100,32 +100,32 @@ Write:
 You should now have:
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">"_" "-"
-"-" "_"
-"^" "6"
-"6" "^"
-</pre>
+<pre class="src src-emacs-lisp"><code><span style="color: #a6e3a1;">"_"</span> <span style="color: #a6e3a1;">"-"</span>
+<span style="color: #a6e3a1;">"-"</span> <span style="color: #a6e3a1;">"_"</span>
+<span style="color: #a6e3a1;">"^"</span> <span style="color: #a6e3a1;">"6"</span>
+<span style="color: #a6e3a1;">"6"</span> <span style="color: #a6e3a1;">"^"</span>
+</code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org2b10ec7" class="outline-3">
-<h3 id="org2b10ec7">step two</h3>
-<div class="outline-text-3" id="text-org2b10ec7">
+<div id="outline-container-org8ba2985" class="outline-3">
+<h3 id="org8ba2985">step two</h3>
+<div class="outline-text-3" id="text-org8ba2985">
 <p>
 Write:
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(define-key LaTeX-mode-map (lambda () (interactive) (insert)))
-</pre>
+<pre class="src src-emacs-lisp"><code><span style="color: #e7dbc0;">(</span><span style="color: #a1b9e1;">define-key LaTeX-mode-map (</span><span style="color: #ccb9e3;">lambda</span><span style="color: #ccb9e3;"> ()</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">interactive</span><span style="color: #ccb9e3;">)</span> <span style="color: #ccb9e3;">(</span><span style="color: #797979;">insert</span><span style="color: #ccb9e3;">)</span><span style="color: #a1b9e1;">)</span><span style="color: #e7dbc0;">)</span>
+</code></pre>
 </div>
 <p>
 Kill it with <kbd>C-,</kbd> or <kbd>C-k</kbd>.
 </p>
 </div>
 </div>
-<div id="outline-container-org4f3568f" class="outline-3">
-<h3 id="org4f3568f">step three</h3>
-<div class="outline-text-3" id="text-org4f3568f">
+<div id="outline-container-orgd00c918" class="outline-3">
+<h3 id="orgd00c918">step three</h3>
+<div class="outline-text-3" id="text-orgd00c918">
 <ul class="org-ul">
 <li>position the point at the start</li>
 <li><kbd>M-3 C-7</kbd> to add three cursors</li>
@@ -139,15 +139,6 @@ Kill it with <kbd>C-,</kbd> or <kbd>C-k</kbd>.
 <li><kbd>okok</kbd> insert up twice</li>
 <li><kbd>C-7</kbd> to cancel <code>multiple-cursors</code></li>
 </ul>
-
-<div class="HTML" id="org119fb6b">
-<p>
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-</p>
-
-</div>
 </div>
 </div>
 </div>

@@ -58,9 +58,3 @@ Kill it with ~C-,~ or ~C-k~.
 - ~jj~ go down twice
 - ~okok~ insert up twice
 - ~C-7~ to cancel =multiple-cursors=
-
-#+BEGIN_HTML
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-#+END_HTML

@@ -139,9 +139,3 @@ Evaluate the =cond= branches in your mind and simplify with ~akrr~.
 (+ 4 (+ 3 (+ 2 ||1)))
 #+end_src
 ~C-e~ ~e~ to check that the result is still =10=. That's it.
-
-#+BEGIN_HTML
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-#+END_HTML
