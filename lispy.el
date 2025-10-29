@@ -6639,7 +6639,9 @@ Otherwise return cons of current string, symbol or list bounds."
              (org-back-to-heading t)
              (point))
            (progn
-             (org-end-of-subtree t t)
+             (outline-mark-subtree)
+             (exchange-point-and-mark)
+             (deactivate-mark)
              (when (and (org-at-heading-p)
                         (not (eobp)))
                (backward-char 1))
@@ -7640,42 +7642,48 @@ Defaults to `error'."
 (defun lispy--function-parse (str)
   "Extract the function body and args from it's expression STR."
   (let ((body (lispy--read str))
-        args)
-    (cond ((eq (car body) 'lambda)
-           (setq body (cons 'defun body)))
-          ((eq (car body) 'closure)
-           (setq body `(defun noname ,@(cddr body))))
-          ((eq (car body) 'defsubst)
-           (setq body (cons 'defun (cdr body)))))
-    (cond ((memq (car body) '(defun defmacro))
-           (setq body (lispy--whitespace-trim (cdr body))))
-          ((eq (car body) 'defalias)
-           (let ((name (cadr (cadr (read str)))))
-             (setq body
-                   (cons name (cdr (symbol-function name))))))
-          (t
-           (error "Expected defun, defmacro, or defalias got %s" (car body))))
-    (if (symbolp (car body))
-        (setq body (lispy--whitespace-trim (cdr body)))
-      (error "Expected function name, got %s" (car body)))
-    (if (listp (car body))
-        (progn
-          (setq args (car body))
+	args)
+    (if (not (consp body))
+        (progn (setq args (aref body 0))
+               (setq body (aref body 1)))
+      ;; In Emacs 30, `read' returns a dedicated type, instead of
+      ;; simple list, for lambdas, defuns, closures, etc.  And code
+      ;; below is only valid for `defmacro'.  Keep it for Emacs < 30.
+      (cond ((eq (car body) 'lambda)
+             (setq body (cons 'defun body)))
+            ((eq (car body) 'closure)
+             (setq body `(defun noname ,@(cddr body))))
+            ((eq (car body) 'defsubst)
+             (setq body (cons 'defun (cdr body)))))
+      (cond ((memq (car body) '(defun defmacro))
+             (setq body (lispy--whitespace-trim (cdr body))))
+            ((eq (car body) 'defalias)
+             (let ((name (cadr (cadr (read str)))))
+               (setq body
+                     (cons name (cdr (symbol-function name))))))
+            (t
+             (error "Expected defun, defmacro, or defalias got %s" (car body))))
+      (if (symbolp (car body))
+          (setq body (lispy--whitespace-trim (cdr body)))
+        (error "Expected function name, got %s" (car body)))
+      (if (listp (car body))
+          (progn
+            (setq args (car body))
+            (setq body (lispy--whitespace-trim (cdr body))))
+        (error "Expected function arguments, got %s" (car body)))
+      ;; skip docstring
+      (if (and (listp (car body))
+               (eq (caar body) 'ly-raw)
+               (eq (cadar body) 'string))
           (setq body (lispy--whitespace-trim (cdr body))))
-      (error "Expected function arguments, got %s" (car body)))
-    ;; skip docstring
-    (if (and (listp (car body))
-             (eq (caar body) 'ly-raw)
-             (eq (cadar body) 'string))
-        (setq body (lispy--whitespace-trim (cdr body))))
-    ;; skip declare
-    (if (and (listp (car body))
-             (eq (caar body) 'declare))
-        (setq body (lispy--whitespace-trim (cdr body))))
-    ;; skip interactive
-    (if (and (listp (car body))
-             (eq (caar body) 'interactive))
-        (setq body (lispy--whitespace-trim (cdr body))))
+      ;; skip declare
+      (if (and (listp (car body))
+               (eq (caar body) 'declare))
+          (setq body (lispy--whitespace-trim (cdr body))))
+      ;; skip interactive
+      (if (and (listp (car body))
+               (eq (caar body) 'interactive))
+          (setq body (lispy--whitespace-trim (cdr body)))))
     (list args body)))
 
 (defun lispy--flatten-function (fstr e-args)
