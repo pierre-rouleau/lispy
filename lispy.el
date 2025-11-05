@@ -1977,7 +1977,8 @@ behavior, set this variable to nil.")
 
 (defvar lispy-colon-no-space-regex
   '((lisp-mode . "\\s-\\|[:^?#]\\|ql\\|\\(?:\\(\\s(\\|'\\)[[:word:]-]*\\)")
-    (slime-repl-mode . ""))
+    (slime-repl-mode . "")
+    (sly-mrepl-mode . ""))
   "Overrides REGEX that `lispy-colon' will consider for `major-mode'.
 `lispy-colon' will insert \" :\" instead of \":\" unless
 `lispy-no-space' is t or `looking-back' REGEX.")
@@ -7642,7 +7643,7 @@ Defaults to `error'."
 (defun lispy--function-parse (str)
   "Extract the function body and args from it's expression STR."
   (let ((body (lispy--read str))
-	args)
+  args)
     (if (not (consp body))
         (progn (setq args (aref body 0))
                (setq body (aref body 1)))
